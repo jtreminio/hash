@@ -3,12 +3,13 @@
     "type": "library",
     "description": "A simple, easy to use wrapper around crypt",
     "keywords": ["crypt", "password hashing"],
-    "homepage": "http://jtreminio.com",
+    "homepage": "https://github.com/jtreminio/hash",
     "license": "MIT",
     "authors": [
         {
             "name": "Juan Treminio",
-            "email": "jtreminio@gmail.com"
+            "email": "jtreminio@gmail.com",
+            "homepage": "http://jtreminio.com"
         }
     ],
     "require": {
