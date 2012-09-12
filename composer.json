@@ -1,5 +1,5 @@
 {
-    "name": "jtreminio/Hash",
+    "name": "jtreminio/hash",
     "type": "library",
     "description": "A simple, easy to use wrapper around crypt",
     "keywords": ["crypt", "password hashing"],
