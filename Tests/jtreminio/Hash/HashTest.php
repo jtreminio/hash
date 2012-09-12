@@ -1,8 +1,9 @@
 <?php
 
 namespace jtreminio\Hash;
+use \jtreminio\Test\TestExtensions;
 
-class HashTest extends \jtreminio\Test\Base
+class HashTest extends TestExtensions
 {
 
     /**
