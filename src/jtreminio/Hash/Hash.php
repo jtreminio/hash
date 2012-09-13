@@ -32,7 +32,7 @@ abstract class Hash
     {
         $class = get_called_class();
 
-        $salt = $class::PREFIX.$this->rounds.'$'.$this->generateSalt();
+        $salt = $class::PREFIX.$this->rounds.'$'.$this->generateSalt().'$';
 
         return $this->validateHash(crypt($password, $salt));
     }
