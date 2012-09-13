@@ -1,7 +1,7 @@
 <?php
 
 namespace jtreminio\Hash;
-use \jtreminio\Test\TestExtensions;
+use \jtreminio\TestExtensions\TestExtensions;
 
 class HashTest extends TestExtensions
 {
@@ -112,6 +112,60 @@ class HashTest extends TestExtensions
                 $incorrectPassword,
                 $passwordHash
             )
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function algoEnabledThrowsExceptionOnAlgoNotDefined()
+    {
+        $undefinedConstant = 'UNDEFINED_CONSTANT_123';
+
+        $this->setExpectedException(
+            'jtreminio\Hash\Exception',
+            "Algorithm '{$undefinedConstant}' is not enabled on this system."
+        );
+
+        $hasher = $this->getMockBuilder('jtreminio\Hash\Hash')
+            ->disableOriginalConstructor()
+            ->setMethods(array('getAlgoName'))
+            ->getMockForAbstractClass();
+
+        $hasher->expects($this->once())
+            ->method('getAlgoName')
+            ->will($this->returnValue($undefinedConstant));
+
+        $this->invokeMethod(
+            $hasher,
+            'algoEnabled'
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function algoEnabledThrowsExceptionOnAlgoConstantValueNotOne()
+    {
+        $constantWithValueNotOne = 'E_WARNING';
+
+        $this->setExpectedException(
+            'jtreminio\Hash\Exception',
+            "Algorithm '{$constantWithValueNotOne}' is not enabled on this system."
+        );
+
+        $hasher = $this->getMockBuilder('jtreminio\Hash\Hash')
+            ->disableOriginalConstructor()
+            ->setMethods(array('getAlgoName'))
+            ->getMockForAbstractClass();
+
+        $hasher->expects($this->once())
+            ->method('getAlgoName')
+            ->will($this->returnValue($constantWithValueNotOne));
+
+        $this->invokeMethod(
+            $hasher,
+            'algoEnabled'
         );
     }
 }
