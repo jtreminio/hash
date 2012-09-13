@@ -35,20 +35,13 @@ class Sha256Test extends TestExtensions
 
         $hash = $hasher->hash('foo');
 
-        $minimumHashLength = 76;
-        $maximumHashLength = 119;
-        $hashLength = strlen($hash);
+        $expectedHashLength = 76;
+        $actualHashLength = strlen($hash);
 
-        $this->assertGreaterThanOrEqual(
-            $minimumHashLength,
-            $hashLength,
-            "Sha256 hash expected to be greater than {$minimumHashLength} characters in length"
-        );
-
-        $this->assertLessThanOrEqual(
-            $maximumHashLength,
-            $hashLength,
-            "Sha256 hash expected to be less than or equal to {$maximumHashLength} characters in length"
+        $this->assertEquals(
+            $expectedHashLength,
+            $actualHashLength,
+            "Sha256 hash expected to be {$expectedHashLength} characters in length"
         );
     }
 

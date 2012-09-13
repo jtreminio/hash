@@ -36,11 +36,11 @@ class BCryptTest extends TestExtensions
         $hash = $hasher->hash('foo');
 
         $expectedHashLength = 60;
-        $hashLength = strlen($hash);
+        $actualHashLength = strlen($hash);
 
         $this->assertEquals(
             $expectedHashLength,
-            $hashLength,
+            $actualHashLength,
             "bcrypt hash expected to be {$expectedHashLength} characters in length"
         );
     }

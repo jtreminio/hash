@@ -36,11 +36,11 @@ class MD5Test extends TestExtensions
         $hash = $hasher->hash('foo');
 
         $expectedHashLength = 34;
-        $hashLength = strlen($hash);
+        $actualHashLength = strlen($hash);
 
         $this->assertEquals(
             $expectedHashLength,
-            $hashLength,
+            $actualHashLength,
             "MD5 hash expected to be {$expectedHashLength} characters in length"
         );
     }

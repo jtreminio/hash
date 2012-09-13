@@ -35,20 +35,13 @@ class Sha512Test extends TestExtensions
 
         $hash = $hasher->hash('foo');
 
-        $minimumHashLength = 91;
-        $maximumHashLength = 119;
-        $hashLength = strlen($hash);
+        $expectedHashLength = 119;
+        $actualHashLength = strlen($hash);
 
-        $this->assertGreaterThanOrEqual(
-            $minimumHashLength,
-            $hashLength,
-            "sha512 hash expected to be greater than {$minimumHashLength} characters in length"
-        );
-
-        $this->assertLessThanOrEqual(
-            $maximumHashLength,
-            $hashLength,
-            "sha512 hash expected to be less than or equal to {$maximumHashLength} characters in length"
+        $this->assertEquals(
+            $expectedHashLength,
+            $actualHashLength,
+            "sha512 hash expected to be {$expectedHashLength} characters in length"
         );
     }
 
